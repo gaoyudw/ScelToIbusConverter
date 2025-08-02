@@ -26,9 +26,9 @@ chinese input methord sougou pinyin scel to ibus text file
 解析词条内容...
 词条解析完成，共 1250 个词条
 预览:
-  CPU        c'p'u                          5
-  内存       nei'cun                        8
-  硬盘       ying'pan                       6
+  CPU        c'p'u               5
+  内存       nei'cun              8
+  硬盘       ying'pan             6
 当前总词条数: 1250
 
 [2/15] 处理文件: 医学词汇.scel
