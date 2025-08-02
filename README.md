@@ -128,9 +128,8 @@ private static List<VocabularyItem> RemoveDuplicates(List<VocabularyItem> vocabu
 - 高效字典操作，时间复杂度O(n)
 
 ### 完整处理流程
-
-
-```graph TD
+```mermaid
+graph TD
     A[开始] --> B{参数分析}
     B -->|单文件| C[处理单个文件]
     B -->|批量模式 -R| D[处理整个目录]
