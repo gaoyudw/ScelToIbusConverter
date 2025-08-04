@@ -191,3 +191,30 @@ Console.WriteLine($"去重完成! 耗时: {stopwatch.Elapsed.TotalSeconds:F2}秒
 行   xing      80    // 多音字不同读音
 行   hang      70    // 多音字不同读音
 ```
+
+#### 关于导入之后的词频混乱问题,可以改成词频强制为1 这样就不会混乱,修改的代码如下
+```c#
+                    // 修改前的内容
+                    // ushort frequency = 1;
+                    // if (extLength >= 2 && position + 2 <= data.Length)
+                    // {
+                    //     frequency = BitConverter.ToUInt16(data, position);
+                    // }
+                    // // 跳过扩展信息
+                    // if (position + extLength > data.Length)
+                    // {
+                    //     Console.WriteLine($"警告: 扩展信息超出文件范围 @ 0x{position:X4}");
+                    //     break;
+                    // }
+                    // position += extLength;
+                    // // 添加到词库
+                    // vocabulary.Add(new VocabularyItem(word, pinyin, frequency));
+
+                    // 修改后的内容
+                    // 完全忽略原始词频，固定为1
+                    const ushort fixedFrequency = 1;
+                    // 跳过扩展信息区（不再解析词频）
+                    position += extLength;
+                    // 使用固定词频1添加词条
+                    vocabulary.Add(new VocabularyItem(word, pinyin, fixedFrequency));
+```
